@@ -255,6 +255,36 @@ export type GenerationStatus = typeof GenerationStatus.Type;
 export type GenerationStatusResponse = typeof GenerationStatus.Type;
 
 /**
+ * One row in the dashboard conversation / job list.
+ * @example
+ * Schema.decodeUnknownSync(GenerationListItem)(row);
+ * Used by: GET /dashboard/generations and the chat sidebar.
+ */
+export const GenerationListItem = Schema.Struct({
+  jobId: JobId.annotations({ description: 'Generation job id' }),
+  status: Schema.Literal(...JOB_STATUSES).annotations({
+    description: 'Lifecycle status of the job',
+  }),
+  title: Schema.String.annotations({ description: 'Short title derived from the user prompt' }),
+  prompt: Schema.String.annotations({ description: 'User art-direction prompt' }),
+  requestedCount: Schema.Int.annotations({ description: 'Panels requested' }),
+  appStoreUrl: Schema.NullOr(Schema.String).annotations({
+    description: 'Optional App Store URL used as a source',
+  }),
+  createdAt: Schema.String.annotations({ description: 'ISO created timestamp' }),
+  updatedAt: Schema.String.annotations({ description: 'ISO updated timestamp' }),
+}).annotations({ description: 'One generation job summary for the dashboard list' });
+export type GenerationListItem = typeof GenerationListItem.Type;
+
+/** `GET /dashboard/generations` response body. */
+export const GenerationListResponse = Schema.Struct({
+  items: Schema.Array(GenerationListItem).annotations({
+    description: 'Newest-first generation jobs for the signed-in user',
+  }),
+}).annotations({ description: 'GET /dashboard/generations response body' });
+export type GenerationListResponse = typeof GenerationListResponse.Type;
+
+/**
  * `POST /uploads/presign` request body.
  * @returns a validated file upload request for one source asset.
  * @example

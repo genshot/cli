@@ -3,8 +3,12 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2022"],
-    "types": ["node"],
+    "lib": [
+      "ES2022"
+    ],
+    "types": [
+      "node"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -23,16 +27,39 @@
     "useUnknownInCatchVariables": true,
     "baseUrl": ".",
     "paths": {
-      "@genshot/shared/auth": ["./vendor/shared/auth/index.ts"],
-      "@genshot/shared/auth/*": ["./vendor/shared/auth/*"],
-      "@genshot/shared/billing": ["./vendor/shared/billing/index.ts"],
-      "@genshot/shared/billing/*": ["./vendor/shared/billing/*"],
-      "@genshot/shared/generation": ["./vendor/shared/generation/index.ts"],
-      "@genshot/shared/generation/*": ["./vendor/shared/generation/*"],
-      "@genshot/shared/account/*": ["./vendor/shared/account/*"],
-      "@genshot/shared/banner": ["./vendor/shared/banner.ts"]
+      "@genshot/shared/auth": [
+        "./vendor/shared/auth/index.ts"
+      ],
+      "@genshot/shared/auth/*": [
+        "./vendor/shared/auth/*"
+      ],
+      "@genshot/shared/billing": [
+        "./vendor/shared/billing/index.ts"
+      ],
+      "@genshot/shared/billing/*": [
+        "./vendor/shared/billing/*"
+      ],
+      "@genshot/shared/generation": [
+        "./vendor/shared/generation/index.ts"
+      ],
+      "@genshot/shared/generation/*": [
+        "./vendor/shared/generation/*"
+      ],
+      "@genshot/shared/account/*": [
+        "./vendor/shared/account/*"
+      ],
+      "@genshot/shared/banner": [
+        "./vendor/shared/banner.ts"
+      ]
     }
   },
-  "include": ["src/**/*.ts", "vendor/**/*.ts"],
-  "exclude": ["node_modules", "dist", "src/**/*.test.ts"]
+  "include": [
+    "src/**/*.ts",
+    "vendor/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.test.ts"
+  ]
 }

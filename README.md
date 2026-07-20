@@ -3,9 +3,9 @@
 The public command-line client for [genshot](https://genshot.dev) — generate
 App Store, Chrome Web Store, and Google Play screenshots from your terminal.
 
-This is a thin HTTP client for the genshot API (`https://api.genshot.dev`). It
-holds no secrets and runs no generation locally; it authenticates you, manages
-credits, and streams generation jobs to and from the hosted service.
+> This repository is **generated** from the private genshot monorepo. Do not edit
+> it directly; changes are made in the monorepo and synced here. It is a thin HTTP
+> client for the genshot API (`https://api.genshot.dev`) and holds no secrets.
 
 ## Install
 
@@ -38,21 +38,6 @@ machine-readable output support `--json`.
 | `GENSHOT_CONFIG_PATH` | Override the credential file location (defaults to `~/.genshot/config.json`). |
 
 Credentials are written with owner-only (`0600`) permissions.
-
-## Development
-
-```sh
-pnpm install
-pnpm dev            # run the CLI from source via tsx
-pnpm typecheck
-pnpm test
-pnpm build          # bundle to dist/index.cjs via esbuild
-```
-
-The `vendor/shared` directory contains the small set of shared `effect/Schema`
-API contracts the CLI needs to stay in lockstep with the genshot service; it is
-generated from the genshot service's shared contracts and should not be edited
-by hand.
 
 ## License
 

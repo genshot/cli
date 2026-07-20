@@ -1,6 +1,7 @@
 name: release
 
-# Publishes @genshot/cli to npm on a version tag. Bump package.json, then:
+# Publishes @genshot/cli to npm on a version tag. Bump the version in the monorepo,
+# re-sync, then tag here:
 #   git tag v3.0.2 && git push origin v3.0.2
 # Requires an npm publish token stored as the `NPM_TOKEN` repository/org secret.
 
@@ -29,11 +30,10 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: pnpm
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Verify tag matches package version
         run: |
