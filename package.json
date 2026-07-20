@@ -1,0 +1,61 @@
+{
+  "name": "@genshot/cli",
+  "version": "3.0.2",
+  "type": "module",
+  "description": "Public genshot CLI — sign in by email, buy credits, and generate App Store screenshots from the terminal.",
+  "keywords": [
+    "genshot",
+    "app-store",
+    "screenshots",
+    "cli",
+    "openai"
+  ],
+  "author": "YosefHayim",
+  "license": "MIT",
+  "homepage": "https://github.com/genshot/cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genshot/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/genshot/cli/issues"
+  },
+  "bin": {
+    "genshot": "dist/index.cjs"
+  },
+  "imports": {
+    "#cli/*": "./src/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "esbuild src/main.ts --bundle --platform=node --format=cjs --target=node22 --tsconfig=tsconfig.json --outfile=dist/index.cjs && chmod +x dist/index.cjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@clack/prompts": "^1.6.0",
+    "@types/node": "^22.20.1",
+    "commander": "^12.1.0",
+    "effect": "^3.21.4",
+    "esbuild": "0.27.7",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  }
+}
