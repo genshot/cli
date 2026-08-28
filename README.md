@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://genshot.dev">
+    <img src="https://genshot.dev/logos/genshot-wordmark-dark.png" alt="Genshot" width="420" />
+  </a>
+</p>
+
 # @genshot/cli
 
 The public command-line client for [genshot](https://genshot.dev) — generate
@@ -38,6 +44,11 @@ machine-readable output support `--json`.
 | `GENSHOT_CONFIG_PATH` | Override the credential file location (defaults to `~/.genshot/config.json`). |
 
 Credentials are written with owner-only (`0600`) permissions.
+
+## Related
+
+- [@genshot/sdk](https://github.com/genshot/sdk) — TypeScript / JavaScript API client
+- [API docs](https://genshot.dev/api-docs) — full HTTP contract
 
 ## License
 
