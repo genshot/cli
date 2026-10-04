@@ -129,7 +129,7 @@ export const BillingPricingResponse = Schema.Struct({
     default: () => CENTS_PER_CREDIT,
   }).annotations({
     description:
-      'List price in USD cents for one credit / one successful image from D1 runtime state (ADR-0028)',
+      'List price in USD cents for one credit / one successful image from D1 runtime state',
   }),
   pwywMinCents: Schema.optionalWith(Schema.Int.pipe(Schema.greaterThan(0)), {
     default: () => Math.max(LEMON_PWYW_PLATFORM_MIN_CENTS, CENTS_PER_CREDIT),
@@ -140,7 +140,7 @@ export const BillingPricingResponse = Schema.Struct({
   costMultiplier: Schema.optionalWith(Schema.Number.pipe(Schema.greaterThan(0)), {
     default: () => COST_PRICE_MULTIPLIER,
   }).annotations({
-    description: 'ADR-0026 measured-cost to list multiplier applied when remeasuring packs',
+    description: 'Measured-cost to list multiplier applied when remeasuring packs',
   }),
   pricingSource: Schema.optionalWith(Schema.Literal('seed', 'd1_remeasure', 'manual', 'unknown'), {
     default: () => 'seed' as const,

@@ -69,7 +69,7 @@ const runLoginAction = async (options: LoginCommandOptions): Promise<void> => {
 /**
  * `genshot login` — store a `gsk_` API key for this machine.
  *
- * Default path (ADR-0025): browser Google OAuth via a device-code flow. The CLI
+ * Default path: browser Google OAuth via a device-code flow. The CLI
  * opens a verification URL, the user finishes Google sign-in, and the CLI polls
  * until a one-time key is ready.
  *

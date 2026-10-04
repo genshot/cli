@@ -3,7 +3,7 @@
  * buys one successfully generated image. Price per image is flat; pack sizes
  * amortize checkout fees rather than offering a volume discount.
  *
- * **List price (ADR-0026 + ADR-0028):** target = measured average cost per
+ * **List price:** target = measured average cost per
  * successful image × {@link COST_PRICE_MULTIPLIER}. Compile-time
  * {@link CREDIT_PACKS} / {@link CENTS_PER_CREDIT} are the **seed** defaults.
  * The worker’s D1 `billing_pricing_state.cents_per_credit` is the runtime SSOT
@@ -57,7 +57,7 @@ export const CREDIT_PACKS = {
 } as const;
 
 /**
- * Seed list cents per credit / successful image (ADR-0026). Used when D1 has no
+ * Seed list cents per credit / successful image. Used when D1 has no
  * pricing row yet. Fixed pack seed amounts are `credits × CENTS_PER_CREDIT`.
  */
 export const CENTS_PER_CREDIT =
@@ -70,7 +70,7 @@ export const SEED_MEASURED_AVG_COST_CENTS = 19;
 export const DYNAMIC_CREDIT_PACK_ID = 'image_credits_custom' as const;
 
 /**
- * Margin multiplier over measured provider cost (ADR-0026). List price target is
+ * Margin multiplier over measured provider cost. List price target is
  * `round(costCents × COST_PRICE_MULTIPLIER)`, not the older ×3 floor story.
  */
 export const COST_PRICE_MULTIPLIER = 1.5;
@@ -117,7 +117,7 @@ export const creditsFromPaidAmountCents = (
 };
 
 /**
- * Convert measured per-image provider cost (integer USD cents) into the ADR-0026
+ * Convert measured per-image provider cost (integer USD cents) into the
  * list-price target in cents: `round(cost × 1.5)`.
  *
  * @param costCents - Measured average cost per successful image, in USD cents.
@@ -186,7 +186,7 @@ export type RemeasureDecision =
 
 /**
  * Pure remeasure gate: avg provider cost → list cents; apply only when sample
- * count and absolute delta thresholds pass (ADR-0028).
+ * count and absolute delta thresholds pass.
  *
  * @param input - Aggregate cost stats and current runtime cents.
  * @returns Apply with next cents, or skip with a machine reason.
