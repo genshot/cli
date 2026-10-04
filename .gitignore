@@ -1,5 +1,16 @@
+# dependencies
 node_modules/
+
+# build
 dist/
 *.tsbuildinfo
-.DS_Store
+
+# logs
 *.log
+
+# editor and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
