@@ -1,0 +1,16 @@
+name: Typecheck
+'on':
+  workflow_call: null
+permissions:
+  contents: read
+jobs:
+  check:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup workspace
+        uses: ./.github/actions/setup
+      - name: Typecheck
+        run: pnpm typecheck
